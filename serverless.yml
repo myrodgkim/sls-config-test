@@ -1,0 +1,24 @@
+service: sls-config-test
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+# you can overwrite defaults here
+#  stage: dev
+  region: ${file(config.${self:provider.stage}.json):region}
+
+# you can define service wide environment variables here
+  environment:
+    ENV1: ${file(config.${self:provider.stage}.json):ENV1}
+
+package:
+  exclude:
+    - config.*.json
+
+functions:
+  hello:
+    handler: handler.hello
