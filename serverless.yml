@@ -9,11 +9,11 @@ provider:
 
 # you can overwrite defaults here
 #  stage: dev
-  region: ${file(config.${self:provider.stage}.json):region}
+  region: ${file(config.${self:provider.stage}.yml):region}
 
 # you can define service wide environment variables here
   environment:
-    ENV1: ${file(config.${self:provider.stage}.json):ENV1}
+    ENV1: ${file(config.${self:provider.stage}.yml):ENV1}
 
 package:
   exclude:

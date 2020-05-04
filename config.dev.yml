@@ -1,0 +1,2 @@
+region: "ap-northeast-2"
+ENV1: "test message from YML"
